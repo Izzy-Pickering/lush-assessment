@@ -2,7 +2,7 @@
 
 ## Objective
 
-Build a GraphQL API server using NodeJS, TypeScript, Yoga GQL, Prisma and Pothos GraphQL to manage task lists and their tasks. This assignment evaluates your understanding of GraphQL principles, schema design with Pothos, relational data modelling, Typecript usage and general backend development practices.
+Build a GraphQL API server using NodeJS, TypeScript, Yoga GQL, Prisma, and Pothos GraphQL to manage task lists and their tasks. This assignment evaluates your understanding of GraphQL principles, schema design with Pothos, relational data modelling, TypeScript usage, and general backend development practices.
 
 ## Setting up
 
@@ -14,14 +14,16 @@ Once you have node and npm installed, run `npm i` in the project root in order t
 
 ## Running the Task List API
 
-The API runs in the terminal. Simply run `npm run start`.
+The API runs on port `3000`. Run `npm run start` and go to `http://0.0.0.0:3000/graphql` to access the Yoga GraphiQL playground.
 
-## Running the tests
+### Example queries
 
-To run the tests, simply run `npm run test`.
+### Other commands
 
+`npm run test` - Run the test suit
+`npm run lint` - Lint the files
+`npm run types` - Check the types
 
 ## Decisions
-
 
 ## Potential Improuvements
