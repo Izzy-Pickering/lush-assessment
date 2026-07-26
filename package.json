@@ -5,30 +5,30 @@
   "main": "src/server.ts",
   "type": "module",
   "scripts": {
-    "test": "vitest",
-    "start": "node .",
     "lint": "npx prettier . --write",
-    "types": "tsc --noEmitOnError ."
+    "database:sync": "prisma migrate dev",
+    "docker:up": "docker compose up -d database",
+    "docker:wait": "docker compose exec -T database pg_isready -U postgres",
+    "generate": "prisma generate",
+    "start": "npm run docker:up && npm run docker:wait && npm run generate && npm run database:sync && node ."
   },
   "author": "IP",
   "license": "ISC",
   "devDependencies": {
-    "@eslint/js": "10.00.1",
-    "@pothos/plugin-prisma": "^4.15.0",
     "@types/node": "26.1.1",
-    "eslint": "10.8.0",
-    "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-prettier": "5.5.6",
     "prettier": "3.9.6",
     "prisma": "7.8.0",
     "tsx": "4.23.1",
-    "typescript": "6.0.3",
-    "typescript-eslint": "8.65.0"
+    "typescript": "6.0.3"
   },
   "dependencies": {
     "@pothos/core": "4.13.1",
+    "@pothos/plugin-prisma": "4.15.0",
     "@pothos/plugin-validation": "4.3.1",
+    "@prisma/adapter-pg": "7.9.0",
     "@prisma/client": "7.9.0",
+    "dotenv": "17.4.2",
+    "graphql-scalars": "1.25.0",
     "graphql-yoga": "5.21.2",
     "zod": "4.4.3"
   }

@@ -17,12 +17,13 @@ Once you have node and npm installed, run `npm i` in the project root in order t
 The API runs on port `3000`. Run `npm run start` and go to `http://0.0.0.0:3000/graphql` to access the Yoga GraphiQL playground.
 
 ### Example queries
-
-### Other commands
-
-`npm run test` - Run the test suit
-`npm run lint` - Lint the files
-`npm run types` - Check the types
+```
+mutation {
+  addTaskList(data: {name: "testing-10"}) {
+    name
+  }
+}
+```
 
 ## Decisions
 
