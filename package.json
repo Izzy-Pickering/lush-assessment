@@ -1,0 +1,22 @@
+{
+  "name": "LushAssignment",
+  "version": "1.0.0",
+  "description": "Task List API",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "start": "node .",
+    "lint": "npx prettier . --write"
+  },
+  "author": "IP",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "10.00.1",
+    "eslint": "10.8.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.6",
+    "prettier": "3.9.6",
+    "typescript-eslint": "8.65.0"
+  }
+}
