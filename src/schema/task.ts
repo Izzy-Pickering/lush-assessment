@@ -45,7 +45,6 @@ builder.queryFields(t => ({
         required: true,
         validate: z.number().positive('Task List ID must be greater than 0'),
       }),
-      orderByCompletionStatus: t.arg.boolean({ required: false }),
     },
     resolve: async (query, _, args) =>
       prisma.task.findMany({

@@ -97,11 +97,12 @@ Adding tests for:
 - Error handling: GraphQL has unique Error handling so best to test it
 - Performance testing (optional): Making sure we prevent expensive queries
 
-### User-friendly updates
+### Usability improvements
 
 - Adding pagination: Using cursor since that is more efficient when the database gets bigger. Limiting it to 10 per page for readibility.
 - Better error handling:
   - Extracting the zod message into Error variables to avoid repitition and help with consistancy.
   - Add additional zod messages.
+  - Making sure the requests for records that do not exist (e.g. task, updateTask, deleteTask with an unknown id) fail in a consistent, deliberate way — not with an unhandled Prisma error.
   - Handle the Prisma errors by extracting the `error.meta.cause` and using that to make the error troubleshooting easier.
 - Setting up a more user-friendly way of adding tasks to a taskList

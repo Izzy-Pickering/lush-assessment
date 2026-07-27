@@ -12,7 +12,7 @@ builder.prismaObject('TaskList', {
   }),
 });
 
-const TaskListDetails = builder.inputType('taskListDetails', {
+const TaskListDetails = builder.inputType('TaskListDetails', {
   fields: t => ({
     name: t.string({ required: true, validate: z.string() }),
   }),
@@ -21,8 +21,7 @@ const TaskListDetails = builder.inputType('taskListDetails', {
 builder.queryFields(t => ({
   allTaskList: t.prismaField({
     type: ['TaskList'],
-    resolve: async (query, _, args) =>
-      prisma.taskList.findMany({ ...query, where: { id: args.id } }),
+    resolve: async (query, _, args) => prisma.taskList.findMany({ ...query }),
   }),
 }));
 
@@ -38,5 +37,5 @@ builder.mutationFields(t => ({
         data: { name: args.data.name },
       });
     },
-  })
+  }),
 }));

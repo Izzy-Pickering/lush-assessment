@@ -5,16 +5,15 @@ scalar DateTime
 
 type Mutation {
   addTask(data: TaskDetails!): Task
-  addTaskList(data: taskListDetails!): TaskList
+  addTaskList(data: TaskListDetails!): TaskList
   deleteTask(id: Int!): Task
-  updateNumberOfTasks(id: Int!): TaskList
   updateTask(completed: Boolean, id: Int, title: String): Task
 }
 
 type Query {
   allTaskList: [TaskList!]
   taskById(id: Int!): Task
-  taskByTaskListId(orderByCompletionStatus: Boolean, taskListId: Int!): [Task!]
+  taskByTaskListId(taskListId: Int!): [Task!]
 }
 
 """
@@ -42,6 +41,6 @@ type TaskList {
   numberOfTasks: Int
 }
 
-input taskListDetails {
+input TaskListDetails {
   name: String!
 }
