@@ -63,10 +63,19 @@ builder.mutationFields(t => ({
       data: t.arg({ type: TaskDetails, required: true }),
     },
     resolve: async (query, _, args) => {
-      return prisma.task.create({
-        ...query,
-        data: { title: args.data.title, taskListId: args.data.taskListId },
-      });
+      const [updateNumberOfTasks, createdTask] = await prisma.$transaction([
+        prisma.taskList.update({
+          where: { id: args.data.taskListId },
+          data: { numberOfTasks: { increment: 1 } },
+        }),
+
+        prisma.task.create({
+          ...query,
+          data: { title: args.data.title, taskListId: args.data.taskListId },
+        }),
+      ]);
+
+      return createdTask;
     },
   }),
   deleteTask: t.prismaField({
